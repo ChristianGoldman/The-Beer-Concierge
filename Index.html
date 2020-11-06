@@ -7,23 +7,58 @@
     <link rel="stylesheet" href="style.css" />
     <link
       rel="stylesheet"
+
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    />
+    <link
+      rel="stylesheet"
+
+
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     />
   </head>
   <body>
     <nav>
       <div class="nav-wrapper">
+
+        <a class="brand-logo center"></a>
+
         <a class="brand-logo center">Logo</a>
+
         <h1>The Mullet's</h1>
       </div>
     </nav>
 
     <div class="row">
+
+      <div class="col s4">
+
       <div class="col s6">
+
         <div class="input-field">
           <input
             id="search"
             type="search"
+
+            placeholder="Job Keywords"
+            required />
+        </div>
+      </div>
+      <div class="col s4">
+        <div class="input-field">
+        <input id="search" type="search" placeholder="Location" required />
+        </div>
+        <!-- <label class="label-icon" for="search"></label> -->
+      </div>
+      <div class="col s4">
+        <button
+          class="btn waves-effect waves-light"
+          type="submit"
+          name="action"
+        >
+          Submit
+        </button>
+
             placeholder="Job Keywords?"
             required
           />
@@ -39,16 +74,28 @@
             Submit
           </button>
         </div>
+
       </div>
     </div>
 
     <div class="row">
+
+      <div class="card-panel col s6">
+        This is job results div
+        <div id="jobResults"></div>
+      </div>
+
+      <div class="card-panel col s6">
+        Beer results div
+        <div id="beerResults"></div>
+
       <div class="jobs col s6">This is job results div
           <div id="jobResults"></div>
       </div>
 
       <div class="beer col s6">Beer results div
           <div id="beerResults"></div>
+
       </div>
     </div>
 
