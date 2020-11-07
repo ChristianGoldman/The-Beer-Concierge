@@ -42,7 +42,7 @@ function getHotelInfo(city) {
         "url": "https://tripadvisor-com.p.rapidapi.com/hotel/search?location=" + city + "=1&offset=0&language=en&currency=USD",
         "method": "GET",
         "headers": {
-            "x-rapidapi-key": "e46221a643mshaa778c220df7fe7p12e0e2jsnc4033c1b7809",
+            "x-rapidapi-key": "744f173752msh69b742401cf6e6fp12dedajsn88a8274b3afb",
             "x-rapidapi-host": "tripadvisor-com.p.rapidapi.com"
         }
     };
@@ -66,8 +66,13 @@ function getHotelInfo(city) {
             hotelNameEl.attr("href", response.data[i].website);
             hotelNameEl.attr("target", "_blank");
             hotelNameEl.text(hotelList[i]);
+            let hotelImageEl = $("<img>");
+            hotelImageEl.attr("alt", "picture of the hotel");
+            hotelImageEl.attr("src", response.data[i].photo.images.small.url);
+
 
             hotelName.append(hotelNameEl);
+            hotelName.append(hotelImageEl);
             console.log(hotelList);
 
             $("#hotelResults").append(hotelName);
