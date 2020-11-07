@@ -13,6 +13,22 @@ $(".btn").on("click", function() {
         method: "GET",
     }).then(function(response) {
         console.log(response);
+        let breweries = [];
+        for (let i=0; i < response.length; i++) {
+            let getBreweryName = response[i].name;
+            breweries.push(getBreweryName);
+            console.log(breweries);
+            let breweryname = $("<div>");
+
+            let breweryNameEl = $("<a>");
+            breweryNameEl.attr("href", response[i].website_url);
+            breweryNameEl.attr("target", "_blank");
+            breweryNameEl.text(response[i].name);
+
+            breweryname.append(breweryNameEl);
+
+            $("#beerResults").append(breweryname);
+        }
     })
 
 
@@ -58,3 +74,7 @@ function getHotelInfo(city) {
         };
     });
 };
+
+// function getBeerInfo() {
+    
+// }
