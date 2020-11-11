@@ -1,6 +1,7 @@
 $(".btn").on("click", function() {
     let location = $("#searchLocation").val();
     console.log(location);
+    listSearch();
 
     getHotelInfo(location);
 
@@ -62,7 +63,7 @@ function getHotelInfo(city) {
         "url": "https://tripadvisor-com.p.rapidapi.com/hotel/search?location=" + city + "=1&offset=0&language=en&currency=USD",
         "method": "GET",
         "headers": {
-            "x-rapidapi-key": "e46221a643mshaa778c220df7fe7p12e0e2jsnc4033c1b7809",
+            "x-rapidapi-key": "66caed8e94mshaafad0b4be0f6f7p179bc0jsna15f212d5e21",
             "x-rapidapi-host": "tripadvisor-com.p.rapidapi.com"
         }
     };
@@ -110,5 +111,18 @@ function getHotelInfo(city) {
             $("#hotelResults").append(hotelCol);
         };
     });
+
 };
 
+function listSearch() {
+    $("#search-history").empty();
+    let location = $("#searchLocation").val();
+    localStorage.setItem("City", JSON.stringify(location));
+    let city = JSON.parse(localStorage.getItem("City"));
+    let lastSearch = $("<h5 class='lastSearch'>");
+    lastSearch.text("Previous Search: " + city);
+    $("#search-history").append(lastSearch);
+
+    console.log(location);
+    
+}
