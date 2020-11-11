@@ -15,20 +15,38 @@ $(".btn").on("click", function() {
         console.log(response);
         let breweries = [];
         for (let i=0; i < response.length; i++) {
+
             let getBreweryName = response[i].name;
             breweries.push(getBreweryName);
             console.log(breweries);
-            let breweryname = $("<div>");
-
+            let breweryCol = $("<div>");
+                
+            breweryCol.addClass("col s12 m7");
+            let breweryCard = $("<div>");
+            breweryCard.addClass("card horizontal");
+            
+            let breweryCardStaked = $("<div>");
+            breweryCardStaked.addClass("card-staked");
+            let breweryCardContent = $("<div>");
+            breweryCardContent.addClass("card-content");
             let breweryNameEl = $("<a>");
             breweryNameEl.attr("href", response[i].website_url);
             breweryNameEl.attr("target", "_blank");
             breweryNameEl.text(response[i].name);
+            let breweryTypeEl = $("<p>");
+            breweryTypeEl.text("Brewery type: " + response[i].brewery_type);
+            let breweryPhoneNumEl = $("<p>");
+            breweryPhoneNumEl.text("Phone number: " + response[i].phone);
+            let breweryAddressEl = $("<p>");
+            breweryAddressEl.text("Address: " + response[i].street + response[i].city + response[i].state + response[i].postal_code);
 
-            breweryname.append(breweryNameEl);
+            breweryCardContent.append(breweryNameEl);
+            breweryCardStaked.append(breweryCardContent);
+            breweryCard.append(breweryNameEl, breweryAddressEl, breweryTypeEl, breweryPhoneNumEl);
+            breweryCol.append(breweryCard);
 
-            $("#beerResults").append(breweryname);
-        }
+            $("#beerResults").append(breweryCol);
+        };
     })
 
 
