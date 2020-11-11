@@ -4,7 +4,7 @@ $(".btn").on("click", function() {
 
     getHotelInfo(location);
 
-
+    $("#beerResults").empty();
 
     let beerURL = "https://api.openbrewerydb.org/breweries?by_city=" + location;
 
@@ -21,7 +21,7 @@ $(".btn").on("click", function() {
             console.log(breweries);
             let breweryCol = $("<div>");
                 
-            breweryCol.addClass("col s12 m7");
+            breweryCol.addClass("col s12 m12");
             let breweryCard = $("<div>");
             breweryCard.addClass("card horizontal");
             
@@ -38,7 +38,7 @@ $(".btn").on("click", function() {
             let breweryPhoneNumEl = $("<p>");
             breweryPhoneNumEl.text("Phone number: " + response[i].phone);
             let breweryAddressEl = $("<p>");
-            breweryAddressEl.text("Address: " + response[i].street + response[i].city + response[i].state + response[i].postal_code);
+            breweryAddressEl.text("Address: " + response[i].street + " " + response[i].city + ", " + response[i].state + " " + response[i].postal_code);
 
             breweryCardContent.append(breweryNameEl);
             breweryCardStaked.append(breweryCardContent);
@@ -54,13 +54,15 @@ $(".btn").on("click", function() {
 
 function getHotelInfo(city) {
 
+    $("#hotelResults").empty();
+
     const settings = {
         "async": true,
         "crossDomain": true,
         "url": "https://tripadvisor-com.p.rapidapi.com/hotel/search?location=" + city + "=1&offset=0&language=en&currency=USD",
         "method": "GET",
         "headers": {
-            "x-rapidapi-key": "744f173752msh69b742401cf6e6fp12dedajsn88a8274b3afb",
+            "x-rapidapi-key": "e46221a643mshaa778c220df7fe7p12e0e2jsnc4033c1b7809",
             "x-rapidapi-host": "tripadvisor-com.p.rapidapi.com"
         }
     };
@@ -76,7 +78,7 @@ function getHotelInfo(city) {
             let getHotelName = response.data[i].name;
             hotelList.push(getHotelName);
             let hotelCol = $("<div>");
-            hotelCol.addClass("col s12 m7");
+            hotelCol.addClass("col s12 m12");
             let hotelCard = $("<div>");
             hotelCard.addClass("card horizontal");
             let hotelCardImg = $("<div>");
@@ -96,22 +98,17 @@ function getHotelInfo(city) {
             hotelRatingEl.addClass("hotelRating");
             hotelRatingEl.text("Rating: " + response.data[i].rating + "/5");
             let hotelPriceEl = $("<p>");
-            hotelPriceEl.text(response.data[i].price);
+            hotelPriceEl.text("Price range: " + response.data[i].price);
             let hotelAddressEl = $("<p>");
-            hotelAddressEl.text(response.data[i].address);
+            hotelAddressEl.text("Address: " + response.data[i].address);
 
             hotelCardContent.append(hotelNameEl);
             hotelCardStaked.append(hotelCardContent);
             hotelCard.append(hotelCardImg, hotelCardStaked, hotelAddressEl, hotelRatingEl, hotelPriceEl);
             hotelCol.append(hotelCard);
 
-
-
             $("#hotelResults").append(hotelCol);
         };
     });
 };
 
-// function getBeerInfo() {
-    
-// }
