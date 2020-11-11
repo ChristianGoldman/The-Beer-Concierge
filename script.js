@@ -74,36 +74,22 @@ function getHotelInfo(city) {
             hotelNameEl.attr("href", response.data[i].website);
             hotelNameEl.attr("target", "_blank");
             hotelNameEl.text(hotelList[i]);
+            let hotelRatingEl = $("<p>");
+            hotelRatingEl.addClass("hotelRating");
+            hotelRatingEl.text("Rating: " + response.data[i].rating + "/5");
+            let hotelPriceEl = $("<p>");
+            hotelPriceEl.text(response.data[i].price);
+            let hotelAddressEl = $("<p>");
+            hotelAddressEl.text(response.data[i].address);
+
             hotelCardContent.append(hotelNameEl);
             hotelCardStaked.append(hotelCardContent);
-            hotelCard.append(hotelCardImg, hotelCardStaked);
+            hotelCard.append(hotelCardImg, hotelCardStaked, hotelAddressEl, hotelRatingEl, hotelPriceEl);
             hotelCol.append(hotelCard);
 
 
 
             $("#hotelResults").append(hotelCol);
-
-        // for (let i=0; i < getHotel.length ; i++) {
-
-        //     let getHotelName = response.data[i].name;
-        //     hotelList.push(getHotelName);
-
-        //     let hotelName = $("<div>");
-
-        //     let hotelNameEl = $("<a>");
-        //     hotelNameEl.attr("href", response.data[i].website);
-        //     hotelNameEl.attr("target", "_blank");
-        //     hotelNameEl.text(hotelList[i]);
-        //     let hotelImageEl = $("<img>");
-        //     hotelImageEl.attr("alt", "picture of the hotel");
-        //     hotelImageEl.attr("src", response.data[i].photo.images.small.url);
-
-
-        //     hotelName.append(hotelNameEl);
-        //     hotelName.append(hotelImageEl);
-        //     console.log(hotelList);
-
-        //     $("#hotelResults").append(hotelName);
         };
     });
 };
