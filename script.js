@@ -1,6 +1,6 @@
 $(".btn").on("click", function() {
     let location = $("#searchLocation").val();
-    console.log(location);
+
     listSearch();
 
     getHotelInfo(location);
@@ -119,10 +119,11 @@ function listSearch() {
     let location = $("#searchLocation").val();
     localStorage.setItem("City", JSON.stringify(location));
     let city = JSON.parse(localStorage.getItem("City"));
-    let lastSearch = $("<h5 class='lastSearch'>");
+    let lastSearch = $("<p class='lastSearch'>");
     lastSearch.text("Previous Search: " + city);
     $("#search-history").append(lastSearch);
 
     console.log(location);
     
 }
+
