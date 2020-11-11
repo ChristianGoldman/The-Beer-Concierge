@@ -13,6 +13,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     />
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap" rel="stylesheet">
   </head>
   <body>
     <nav>
@@ -27,9 +28,10 @@
     <div class="row">
       <div class="col s2">
         <div class="input-field">
-        <input id="searchLocation" type="search" placeholder="Location" required />
+        <input onfocus="this.value=''" id="searchLocation" type="search" placeholder="Location" />
         </div>
         <!-- <label class="label-icon" for="search"></label> -->
+        <div id="search-history"></div>
       </div>
       <div class="col s4">
         <button
@@ -40,7 +42,6 @@
           Submit
         </button>
       </div>
-      <div class="col s6" id="search-history"></div>
     </div>
     <div class="row">
       <div class="col s6">
