@@ -2,21 +2,18 @@ h1 {
 	text-align: center;
 }
 
-.btn {
-	margin-top: 15px;
-}
-
-
 .card-image img {
 	height: 50%;
 }
 
-a, p {
+a,
+p {
 	padding: 10px;
 }
 
 .nav-wrapper {
 	padding-bottom: 50px;
+	min-height: 80px !important;
 }
 
 nav h1 {
@@ -27,4 +24,9 @@ body {
 	background-image: url("../Project-one/assets/images/background-image.jpg");
 	background-attachment: fixed;
 	background-size: cover;
+}
+
+.input-field,
+.btn {
+	margin-top: 20px !important;
 }
