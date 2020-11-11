@@ -1,5 +1,5 @@
 $(".btn").on("click", function() {
-    let location = $("#searchlocation").val();
+    let location = $("#searchLocation").val();
     console.log(location);
 
     getHotelInfo(location);
@@ -54,28 +54,56 @@ function getHotelInfo(city) {
 
         let hotelList= [];
 
-        
         for (let i=0; i < getHotel.length ; i++) {
-
             let getHotelName = response.data[i].name;
             hotelList.push(getHotelName);
-
-            let hotelName = $("<div>");
-
+            let hotelCol = $("<div>");
+            hotelCol.addClass("col s12 m7");
+            let hotelCard = $("<div>");
+            hotelCard.addClass("card horizontal");
+            let hotelCardImg = $("<div>");
+            hotelCardImg.addClass("card-image");
+            let hotelImgEl = $("<img>");
+            hotelImgEl.attr("src", response.data[i].photo.images.small.url);
+            hotelCardImg.append(hotelImgEl);
+            let hotelCardStaked = $("<div>");
+            hotelCardStaked.addClass("card-staked");
+            let hotelCardContent = $("<div>");
+            hotelCardContent.addClass("card-content");
             let hotelNameEl = $("<a>");
             hotelNameEl.attr("href", response.data[i].website);
             hotelNameEl.attr("target", "_blank");
             hotelNameEl.text(hotelList[i]);
-            let hotelImageEl = $("<img>");
-            hotelImageEl.attr("alt", "picture of the hotel");
-            hotelImageEl.attr("src", response.data[i].photo.images.small.url);
+            hotelCardContent.append(hotelNameEl);
+            hotelCardStaked.append(hotelCardContent);
+            hotelCard.append(hotelCardImg, hotelCardStaked);
+            hotelCol.append(hotelCard);
 
 
-            hotelName.append(hotelNameEl);
-            hotelName.append(hotelImageEl);
-            console.log(hotelList);
 
-            $("#hotelResults").append(hotelName);
+            $("#hotelResults").append(hotelCol);
+
+        // for (let i=0; i < getHotel.length ; i++) {
+
+        //     let getHotelName = response.data[i].name;
+        //     hotelList.push(getHotelName);
+
+        //     let hotelName = $("<div>");
+
+        //     let hotelNameEl = $("<a>");
+        //     hotelNameEl.attr("href", response.data[i].website);
+        //     hotelNameEl.attr("target", "_blank");
+        //     hotelNameEl.text(hotelList[i]);
+        //     let hotelImageEl = $("<img>");
+        //     hotelImageEl.attr("alt", "picture of the hotel");
+        //     hotelImageEl.attr("src", response.data[i].photo.images.small.url);
+
+
+        //     hotelName.append(hotelNameEl);
+        //     hotelName.append(hotelImageEl);
+        //     console.log(hotelList);
+
+        //     $("#hotelResults").append(hotelName);
         };
     });
 };

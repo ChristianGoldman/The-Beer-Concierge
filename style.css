@@ -5,3 +5,7 @@ h1 {
 .btn {
 	margin-top: 15px;
 }
+
+:root {
+	background-color: #FFFAF0;
+}
