@@ -1,9 +1,29 @@
+let searchHistory = [];
+
+loadSearch();
+
 $(".btn").on("click", function() {
     let location = $("#searchLocation").val();
 
-    listSearch();
-
+    
+    getBeerInfo(location);
     getHotelInfo(location);
+    $("#searchLocation").val("");
+    
+    
+    
+        searchHistory.push(location);
+        localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
+    
+    
+    saveSearch();
+    
+
+});
+
+
+
+function getBeerInfo(location) {
 
     $("#beerResults").empty();
 
@@ -49,9 +69,7 @@ $(".btn").on("click", function() {
             $("#beerResults").append(breweryCol);
         };
     })
-
-
-});
+}
 
 function getHotelInfo(city) {
 
@@ -63,7 +81,7 @@ function getHotelInfo(city) {
         "url": "https://tripadvisor-com.p.rapidapi.com/hotel/search?location=" + city + "=1&offset=0&language=en&currency=USD",
         "method": "GET",
         "headers": {
-            "x-rapidapi-key": "66caed8e94mshaafad0b4be0f6f7p179bc0jsna15f212d5e21",
+            "x-rapidapi-key": "744f173752msh69b742401cf6e6fp12dedajsn88a8274b3afb",
             "x-rapidapi-host": "tripadvisor-com.p.rapidapi.com"
         }
     };
@@ -114,16 +132,33 @@ function getHotelInfo(city) {
 
 };
 
-function listSearch() {
+function saveSearch() {
     $("#search-history").empty();
-    let location = $("#searchLocation").val();
-    localStorage.setItem("City", JSON.stringify(location));
-    let city = JSON.parse(localStorage.getItem("City"));
-    let lastSearch = $("<p class='lastSearch'>");
-    lastSearch.text("Previous Search: " + city);
-    $("#search-history").append(lastSearch);
+    for (let i=0;( i < searchHistory.length && i<5); i++) {
+        let history = $("<li>");
+        history.text(searchHistory[i]);
+        history.attr("class", "usercity");
+        $("#search-history").append(history);
+    }
 
-    console.log(location);
     
-}
+
+    //onclick for usercity needs to be here due to scoping issues
+    $(".usercity").on("click", function() {
+        getHotelInfo($(this).text());
+       getBeerInfo($(this).text());
+    })
+    
+};
+
+//function to load local storage
+function loadSearch() {
+    let storedHistory = JSON.parse(localStorage.getItem("searchHistory"));
+    if (storedHistory !== null) {
+        searchHistory = storedHistory
+    }
+    saveSearch();
+};
+
+
 
