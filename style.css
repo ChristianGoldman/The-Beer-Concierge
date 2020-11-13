@@ -1,45 +1,51 @@
-h1 {
-	text-align: center;
+/* Apply to the whole body */
+body {
+	background-image: url("../The-Beer-Concierge/assets/images/background-image.jpg");
+	background-attachment: fixed;
+	background-size: cover;
 }
 
+/* Apply to the header title */
+h1 {
+	text-align: center;
+	font-family: 'Libre Baskerville', serif;
+}
+
+/* Apply to the hotel image inside the card */
 .card-image img {
 	height: 100%;
 }
 
+/* Apply to all the hotel and brewery name and theirs description */
 a,
 p {
 	padding: 10px;
 	font-family: serif;
 }
 
+/* Apply to the navbar */
 .nav-wrapper {
 	padding-bottom: 50px;
 	min-height: 80px !important;
 }
 
+/* Apply to the navbar */
 nav h1 {
 	margin: 0px;
 }
 
-body {
-	background-image: url("../Project-one/assets/images/background-image.jpg");
-	background-attachment: fixed;
-	background-size: cover;
-}
-
+/* Apply to the search bar and the submit button */
 .input-field,
 .btn {
 	margin-top: 20px !important;
 }
 
-h1 {
-	font-family: 'Libre Baskerville', serif;
-}
-
+/* Apply to the card */
 .card {
 	opacity: 80%;
 }
 
+/* Apply to the last city search */
 .lastSearch {
 	text-align: left;
 	font-size: 16px;
@@ -47,9 +53,11 @@ h1 {
 	padding-top: 0px !important;
 }
 
+/* Apply to the city search history and its button */
 ul {
 	padding-top: 20px;
 }
+
 li {
 	display: inline;
 	padding: 10px;
