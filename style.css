@@ -1,6 +1,6 @@
 /* Apply to the whole body */
 body {
-	background-image: url("../The-Beer-Concierge/assets/images/background-image.jpg");
+	background-image: url("assets/images/background-image.jpg");
 	background-attachment: fixed;
 	background-size: cover;
 }
