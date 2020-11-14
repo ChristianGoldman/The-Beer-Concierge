@@ -111,7 +111,7 @@ function getHotelInfo(city) {
         "url": "https://tripadvisor-com.p.rapidapi.com/hotel/search?location=" + city + "=1&offset=0&language=en&currency=USD",
         "method": "GET",
         "headers": {
-            "x-rapidapi-key": "e46221a643mshaa778c220df7fe7p12e0e2jsnc4033c1b7809",
+            "x-rapidapi-key": "744f173752msh69b742401cf6e6fp12dedajsn88a8274b3afb",
             "x-rapidapi-host": "tripadvisor-com.p.rapidapi.com"
         }
     };
