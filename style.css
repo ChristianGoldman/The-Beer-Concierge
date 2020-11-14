@@ -70,3 +70,33 @@ li {
 li:hover {
 	opacity: 80%;
 }
+
+@media screen and (max-width: 768px) {
+
+	ul {
+	  margin-left: 5%;
+	}
+
+	li {
+		margin: 5px;
+	}
+  }
+
+@media screen and (max-width: 400px) {
+
+	body {
+	  min-width: 640px;
+	}
+  
+	.btn {
+	  margin-top: 80% !important;
+	}
+
+	ul {
+		margin-left: 8%;
+	  }
+
+	li {
+		margin: 2px;
+	}
+  }
