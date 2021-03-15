@@ -3,8 +3,8 @@
 * Enables the user to quickly find Hotels and Breweries in any specific city in the world
 * Helped us understand the importance of clear and concise communication
 * Pushing someone forward when one or more teammates may be stuck in the mud
-* Keeping eachother an task and utilizing everyones time more effectively
-* How to navigate Git Branhces and merges more effectively
+* Keeping eachother on task and utilizing everyones time more effectively
+* How to navigate Git Branches and merges more effectively
 * Everyone has their own idea on how a problem may be solved, coming to a team agreement on which approach fits best
 ## Features ##
 * Search any city world wide to find Hotels/Breweries in that corresponding city
